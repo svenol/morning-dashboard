@@ -29,15 +29,9 @@
       padding: 2rem;
     }
     
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
+    .container { max-width: 1400px; margin: 0 auto; }
     
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
+    header { text-align: center; margin-bottom: 2rem; }
     
     header h1 {
       font-size: 2.5rem;
@@ -48,10 +42,7 @@
       -webkit-text-fill-color: transparent;
     }
     
-    header p {
-      color: var(--text-secondary);
-      font-size: 1rem;
-    }
+    header p { color: var(--text-secondary); font-size: 1rem; }
     
     .grid {
       display: grid;
@@ -66,10 +57,7 @@
       transition: transform 0.2s, background 0.2s;
     }
     
-    .card:hover {
-      background: var(--bg-card-hover);
-      transform: translateY(-2px);
-    }
+    .card:hover { background: var(--bg-card-hover); transform: translateY(-2px); }
     
     .card-title {
       font-size: 0.85rem;
@@ -80,19 +68,12 @@
       margin-bottom: 1rem;
     }
     
-    .price-card {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
+    .price-card { display: flex; align-items: center; gap: 1rem; }
     
     .price-icon {
-      width: 48px;
-      height: 48px;
+      width: 48px; height: 48px;
       border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: flex; align-items: center; justify-content: center;
       font-size: 1.5rem;
     }
     
@@ -100,127 +81,76 @@
     .price-icon.eth { background: linear-gradient(135deg, #627eea, #8fa8f0); }
     .price-icon.sol { background: linear-gradient(135deg, #9945ff, #14f195); }
     
-    .price-info h3 {
-      font-size: 1.5rem;
-      font-weight: 700;
-    }
-    
-    .price-change {
-      font-size: 0.9rem;
-      font-weight: 500;
-    }
-    
+    .price-info h3 { font-size: 1.5rem; font-weight: 700; }
+    .price-change { font-size: 0.9rem; font-weight: 500; }
     .price-change.positive { color: var(--accent-green); }
     .price-change.negative { color: var(--accent-red); }
     
-    .fear-greed {
-      text-align: center;
-    }
-    
-    .fg-value {
-      font-size: 4rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-    
+    .fear-greed { text-align: center; }
+    .fg-value { font-size: 4rem; font-weight: 700; line-height: 1; }
     .fg-value.fear { color: var(--accent-red); }
     .fg-value.fear-light { color: var(--accent-orange); }
     .fg-value.neutral { color: var(--text-secondary); }
     .fg-value.greed-light { color: #88cc44; }
     .fg-value.greed { color: var(--accent-green); }
+    .fg-label { font-size: 1.1rem; margin-top: 0.5rem; color: var(--text-secondary); }
     
-    .fg-label {
-      font-size: 1.1rem;
-      margin-top: 0.5rem;
-      color: var(--text-secondary);
+    .trending-list, .airdrop-list, .email-list { list-style: none; }
+    
+    .trending-item, .airdrop-item {
+      display: flex; justify-content: space-between;
+      padding: 0.75rem 0; border-bottom: 1px solid rgba(255,255,255,0.05);
     }
+    .trending-item:last-child, .airdrop-item:last-child { border-bottom: none; }
+    .trending-name { font-weight: 500; }
+    .trending-symbol { color: var(--text-secondary); font-size: 0.85rem; }
     
-    .trending-list {
-      list-style: none;
-    }
-    
-    .trending-item {
-      display: flex;
-      justify-content: space-between;
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .trending-item:last-child { border-bottom: none; }
-    
-    .trending-name {
-      font-weight: 500;
-    }
-    
-    .trending-symbol {
-      color: var(--text-secondary);
-      font-size: 0.85rem;
-    }
-    
-    .airdrop-list {
-      list-style: none;
-    }
-    
-    .airdrop-item {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    
-    .airdrop-item:last-child { border-bottom: none; }
-    
-    .airdrop-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 0.25rem;
-    }
-    
-    .airdrop-name {
-      font-weight: 600;
-    }
-    
-    .airdrop-status {
-      font-size: 0.8rem;
-    }
-    
-    .airdrop-action {
-      font-size: 0.85rem;
-      color: var(--text-secondary);
-    }
-    
+    .airdrop-item { display: block; }
+    .airdrop-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.25rem; }
+    .airdrop-name { font-weight: 600; }
+    .airdrop-status { font-size: 0.8rem; }
+    .airdrop-action { font-size: 0.85rem; color: var(--text-secondary); }
     .confidence-high { color: var(--accent-green); }
     .confidence-medium { color: var(--accent-orange); }
     
-    .market-stats {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-    }
+    .market-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-item { text-align: center; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px; }
+    .stat-value { font-size: 1.25rem; font-weight: 700; }
+    .stat-label { font-size: 0.75rem; color: var(--text-secondary); margin-top: 0.25rem; }
     
-    .stat-item {
-      text-align: center;
+    /* Email styles */
+    .email-item {
       padding: 1rem;
+      margin-bottom: 0.75rem;
       background: rgba(255,255,255,0.03);
       border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.2s;
     }
-    
-    .stat-value {
-      font-size: 1.25rem;
-      font-weight: 700;
-    }
-    
-    .stat-label {
-      font-size: 0.75rem;
-      color: var(--text-secondary);
-      margin-top: 0.25rem;
-    }
-    
-    footer {
-      text-align: center;
-      margin-top: 3rem;
-      color: var(--text-secondary);
+    .email-item:hover { background: rgba(255,255,255,0.06); }
+    .email-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
+    .email-from { font-weight: 600; font-size: 0.9rem; }
+    .email-date { font-size: 0.75rem; color: var(--text-secondary); }
+    .email-subject { font-size: 0.95rem; color: var(--text-primary); }
+    .email-body {
+      display: none;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.1);
       font-size: 0.85rem;
+      color: var(--text-secondary);
+      white-space: pre-wrap;
+      word-break: break-word;
+      max-height: 400px;
+      overflow-y: auto;
     }
+    .email-item.expanded .email-body { display: block; }
+    .email-expand-hint { font-size: 0.75rem; color: var(--accent-blue); margin-top: 0.5rem; }
+    .email-item.expanded .email-expand-hint { display: none; }
+    
+    .full-width { grid-column: 1 / -1; }
+    
+    footer { text-align: center; margin-top: 3rem; color: var(--text-secondary); font-size: 0.85rem; }
     
     @media (max-width: 768px) {
       body { padding: 1rem; }
@@ -233,7 +163,7 @@
   <div class="container">
     <header>
       <h1>☀️ Guten Morgen, Sven!</h1>
-      <p>Freitag, 6. Februar 2026 • 22:20 UTC</p>
+      <p>Freitag, 6. Februar 2026 • 22:25 UTC</p>
     </header>
     
     <div class="grid">
@@ -243,22 +173,22 @@
         <div class="price-card" style="margin-bottom: 1rem;">
           <div class="price-icon btc">₿</div>
           <div class="price-info">
-            <h3>$70,485</h3>
-            <span class="price-change positive">↑ 12.3%</span>
+            <h3>$70,559</h3>
+            <span class="price-change positive">↑ 12.2%</span>
           </div>
         </div>
         <div class="price-card" style="margin-bottom: 1rem;">
           <div class="price-icon eth">Ξ</div>
           <div class="price-info">
-            <h3>$2,053.38</h3>
+            <h3>$2,054.43</h3>
             <span class="price-change positive">↑ 12.3%</span>
           </div>
         </div>
         <div class="price-card">
           <div class="price-icon sol">◎</div>
           <div class="price-info">
-            <h3>$88.38</h3>
-            <span class="price-change positive">↑ 12.4%</span>
+            <h3>$88.53</h3>
+            <span class="price-change positive">↑ 13.3%</span>
           </div>
         </div>
       </div>
@@ -281,23 +211,23 @@
           </li>
           
           <li class="trending-item">
-            <span><span class="trending-name">2. Solana</span></span>
-            <span class="trending-symbol">SOL</span>
-          </li>
-          
-          <li class="trending-item">
-            <span><span class="trending-name">3. Pudgy Penguins</span></span>
+            <span><span class="trending-name">2. Pudgy Penguins</span></span>
             <span class="trending-symbol">PENGU</span>
           </li>
           
           <li class="trending-item">
-            <span><span class="trending-name">4. XRP</span></span>
-            <span class="trending-symbol">XRP</span>
+            <span><span class="trending-name">3. Solana</span></span>
+            <span class="trending-symbol">SOL</span>
           </li>
           
           <li class="trending-item">
-            <span><span class="trending-name">5. Hyperliquid</span></span>
-            <span class="trending-symbol">HYPE</span>
+            <span><span class="trending-name">4. Ethereum</span></span>
+            <span class="trending-symbol">ETH</span>
+          </li>
+          
+          <li class="trending-item">
+            <span><span class="trending-name">5. XRP</span></span>
+            <span class="trending-symbol">XRP</span>
           </li>
           
         </ul>
@@ -320,63 +250,295 @@
             <div class="stat-label">ETH Dominance</div>
           </div>
           <div class="stat-item">
-            <div class="stat-value positive" style="color: var(--accent-green)">8.9%</div>
+            <div class="stat-value" style="color: var(--accent-green)">9.0%</div>
             <div class="stat-label">24h Change</div>
           </div>
         </div>
       </div>
       
-      <!-- Airdrops -->
-      <div class="card" style="grid-column: span 2;">
-        <div class="card-title">🎯 Airdrop Opportunities</div>
-        <ul class="airdrop-list">
+      <!-- Emails -->
+      <div class="card full-width">
+        <div class="card-title">📧 Ungelesene Emails (10)</div>
+        
+        <div class="email-list">
           
-          <li class="airdrop-item">
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Futurepedia</span>
+              <span class="email-date">2026-02-06 15:30</span>
+            </div>
+            <div class="email-subject">Opus 4.6 And GPT-5.3-Codex Just Raised The Bar</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 19c3393b0fb33c38 ===
+From: Futurepedia &lt;mail@newsletter.futurepedia.io&gt;
+To: &quot;svenoldb@gmail.com&quot; &lt;svenoldb@gmail.com&gt;
+Subject: Opus 4.6 And GPT-5.3-Codex Just Raised The Bar
+Date: Fri, 06 Feb 2026 15:30:42 +0000 (UTC)
+
+View image: (https://media.beehiiv.com/cdn-cgi/image/fit=scale-down,format=auto,onerror=redirect,quality�/uploads/asset/file/e02e4ab9-e679-4cd1-8ee3-d06f247ad1ae/Navy_And_Blue_Geometric_Business_Forum_Email_Header__3_.png) [Newsletter header]
+Caption:
+
+
+———
+
+You are reading a plain text version of this post. For the best experience, copy and paste this link in your browser to view the post online:
+https://newsletter.futurepedia.io/p/openai-and-anthropic-drop-powerful-new-models-02-06-2026... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Google Cloud</span>
+              <span class="email-date">2026-02-05 20:08</span>
+            </div>
+            <div class="email-subject">[Legal Update] Google transitions to data processor for reCAPTCHA starting Apr 2, 2026</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 19c2f6bf0939487c ===
+From: Google Cloud &lt;CloudPlatform-noreply@google.com&gt;
+To: svenoldb@gmail.com
+Subject: [Legal Update] Google transitions to data processor for reCAPTCHA starting Apr 2, 2026
+Date: Thu, 05 Feb 2026 12:08:48 -0800
+
+Hello Sven,
+
+We’re writing to let you know that we’ll be changing how we handle your  
+data submitted to our reCAPTCHA service.
+
+Starting on April 2, 2026, we’ll be switching from acting as a data  
+controller, determining how personal data submitted to reCAPTCHA may be  
+used, to a data processor, processing the data strictly for your use in the  
+reCAPTCHA service. This change enables you to have greater control over how  
+your data is used.
+
+We’ve provided a summary of the timeline... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Fotor Payment</span>
+              <span class="email-date">2024-05-29 08:10</span>
+            </div>
+            <div class="email-subject">You&#039;ve Subscribed Successfully!</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 18fc3666819fa97b ===
+From: Fotor Payment &lt;payment@fotor.com&gt;
+To: svenoldb@gmail.com
+Subject: You&#039;ve Subscribed Successfully!
+Date: Wed, 29 May 2024 08:10:18 +0000 (UTC)
+
+96 Your Free Trial is on! Congratulations on starting your free trial with Fotor and joining as our Pro member! Your Fotor Pro&amp;nbsp; subscription will automatically renew at the end of the&amp;nbsp;trial&amp;nbsp;after 7 days. &amp;nbsp; If you&#039;d like to view more subscription information, please&amp;nbsp; click here . Should you&amp;nbsp;have any questions, feel free to contact us . &amp;nbsp; It would be helpful to have your account email, payment receipt and/or other relevant information when you contact us so that ... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">TradingView</span>
+              <span class="email-date">2023-12-18 00:42</span>
+            </div>
+            <div class="email-subject">Wir werden Sie auf ein Basic-Abonnement umschalten</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 18c7a6046f364c7d ===
+From: TradingView &lt;noreply@tradingview.com&gt;
+To: svenoldb@gmail.com
+Subject: Wir werden Sie auf ein Basic-Abonnement umschalten
+Date: Mon, 18 Dec 2023 00:42:58 +0000
+
+Ihr Abonnement ist nicht länger aktiv &amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Sie wurden auf ein Basic-Abonnement herabgestuft &amp;nbsp; Hi Svenol, &amp;nbsp; Leider ist Ihr Abonnement abgelaufen. Erneuern Sie bitte Ihr Abonnement, um erneut Zugang zu Ihrer gespeicherten Arbeit und allen erweiterten Features zu erhalten. &amp;nbsp; Abonnement verlängern &amp;nbsp; &amp;nbsp; Viele Dank fürs Lesen das TradingView-Team 470 Olde Worthington Rd., Suite 200 Westerville&amp;nbsp;OH&amp;nbsp;43082 App Store &amp;nbsp; &amp;nbsp; Google Play &amp;nbsp; ... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Indra Ghosh via WeAct</span>
+              <span class="email-date">2023-12-17 13:28</span>
+            </div>
+            <div class="email-subject">Wehrhafte Demokratie: Mehr als 200.000 Unterschriften!</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 18c77f694443a4e1 ===
+From: Indra Ghosh via WeAct &lt;info@weact.de&gt;
+To: svenoldb@gmail.com
+Subject: Wehrhafte Demokratie: Mehr als 200.000 Unterschriften!
+Date: Sun, 17 Dec 2023 13:28:16 +0000
+
+Liebe Unterstützer*innen der WeAct-Petition &#039;Wehrhafte
+Demokratie: Höcke stoppen!&#039;,
+
+mittlerweile haben mehr als 200.000 Menschen die Petition
+unterschrieben. Das ist ein toller Erfolg!
+
+Außerdem wird die Idee der Petition in der politischen Debatte
+aufgenommen: Benjamin Raschke, der Vorsitzende der Fraktion
+Bündnis 90/Die Grünen im Brandenburger Landtag, hat in der
+Debatte um ein Parteiverbot der AfD die Idee der
+Grundrechtsverwirkung nach Artikel 18 GG aufgegriffen und
+explizit auf ... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">&quot;Freebitco.in&quot;</span>
+              <span class="email-date">2019-02-10 21:57</span>
+            </div>
+            <div class="email-subject">[Win $30,000] Time&#039;s running out.. You have 18 days to play and win our Wagering &amp; Referral Contest</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 168d96a24a201e45 ===
+From: &quot;Freebitco.in&quot; &lt;noreply@freebitco.in&gt;
+To: svenoldb@gmail.com
+Subject: [Win $30,000] Time&#039;s running out.. You have 18 days to play and win our Wagering &amp; Referral Contest
+Date: Sun, 10 Feb 2019 21:57:18 +0000
+
+View the webversion athttps://freebitco.in/?op=email_web_version&amp;email_id=wager_contest_days_left_1&amp;email=svenoldb@gmail.com&amp;unsub=17a5ad2f7d2fe60f76744f82a9ba631d29799a1ff2b376de8b04071a0c8093c1&amp;userid=4889519\n\nDear Freebitco.in User,\n\nThis is your last chance.\n\n$30,000 in prizes await you, but time is running out. \n\nIn18days, at the end ofFebruary, our wagering and referral contest ends. \n\nPlay now to stand a chance at winning a whopping $30,000! \n\nDon&#039;t miss out on the chance of a... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Abra</span>
+              <span class="email-date">2019-02-06 04:11</span>
+            </div>
+            <div class="email-subject">Big News: Stock and ETF investing on Abra 🚀 Sign up now to secure zero fees</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 168c102d063a4aa8 ===
+From: Abra &lt;contact@abra.com&gt;
+To: svenoldb@gmail.com
+Subject: Big News: Stock and ETF investing on Abra 🚀 Sign up now to secure zero fees
+Date: Wed, 6 Feb 2019 04:11:57 +0000
+
+96 *|MC:SUBJECT|* We have really big news! And as a valued Abra user, we wanted to let you know first. Tomorrow we are announcing early access to an industry first — the ability to invest in traditional assets like Apple, Amazon, gold, and the S&amp;amp;P500 using Bitcoin. This means that people in 155 countries around the world will be able to privately and securely invest in popular stocks, with as little as $5.&amp;nbsp; By signing up for early access to these new features, you will secure $0 fees on... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">&quot;Freebitco.in&quot;</span>
+              <span class="email-date">2019-02-05 23:22</span>
+            </div>
+            <div class="email-subject">Win $2,000 in the Lottery This Week</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 168bff88872368a7 ===
+From: &quot;Freebitco.in&quot; &lt;noreply@freebitco.in&gt;
+To: svenoldb@gmail.com
+Subject: Win $2,000 in the Lottery This Week
+Date: Tue, 5 Feb 2019 23:22:41 +0000
+
+View the webversion athttps://freebitco.in/?op=email_web_version&amp;email_id=lottery_1&amp;email=svenoldb@gmail.com&amp;unsub=17a5ad2f7d2fe60f76744f82a9ba631d29799a1ff2b376de8b04071a0c8093c1&amp;userid=4889519\n\nDear Freebitco.in User,\n\nHere&#039;s a chance to win $2,000 every week!\n\nPlay Our Weekly Lottery Draw &amp; Win $2,000 in BTC.\n\nHere&#039;s how to do it:\n\nStep 1: Get Lottery Tickets for2Satoshi Each. \n\nStep 2: Higher the No. of Tickets, Higher the Chance of Winning\n\nStep 3: 10 Lucky Winners Win Up To $... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">Aufstehen</span>
+              <span class="email-date">2019-02-05 21:51</span>
+            </div>
+            <div class="email-subject">Aufstehen im Februar</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 168bfa51e07eb958 ===
+From: Aufstehen &lt;info@aufstehen.de&gt;
+To: Sven Kopp &lt;svenoldb@gmail.com&gt;
+Subject: Aufstehen im Februar
+Date: Tue, 05 Feb 2019 22:51:35 +0100
+
+ 
+
+ [1]
+
+-------------------------
+
+
+Links:
+------
+[1] https://aktiv.aufstehen.de/wp-content/plugins/civicrm/civicrm/extern/url.php?u=250&amp;qid=378231
+
+Hallo Sven,
+
+verrückt: DAX-Vorstände kassieren 4250 Euro Rente am Tag, während Löhne stagnieren und Mieten explodieren.
+
+https://aktiv.aufstehen.de/wp-content/plugins/civicrm/civicrm/extern/url.php?u=251&amp;qid=378231
+
+Die Kündigung des INF-Vertrages durch Donald Trump ist ein Spiel mit dem Feuer. Deutschland muss ein neues Wettrüsten... [truncated]</div>
+          </div>
+          
+          <div class="email-item" onclick="this.classList.toggle('expanded')">
+            <div class="email-header">
+              <span class="email-from">CoinGate</span>
+              <span class="email-date">2019-02-05 16:01</span>
+            </div>
+            <div class="email-subject">Our Four Big Launches in January</div>
+            <div class="email-expand-hint">Klicken zum Lesen →</div>
+            <div class="email-body">=== Message 1/1: 168be6487e1ef5b3 ===
+From: CoinGate &lt;info@coingate.com&gt;
+To: svenoldb@gmail.com
+Subject: Our Four Big Launches in January
+Date: Tue,  5 Feb 2019 16:01:23 +0000 (UTC)
+
+[[HEADLINE]]
+
+[[PERMALINK_FULL_LINK]]
+
+
+
+DEAR CUSTOMER,
+================================================================================
+Our team is delighted to welcome you among our newest customers.
+
+Here are some resources to help you get started:
+* Follow our step-by-step Get Started guide  to understand the basics
+   
+   
+ * Discover our Documentation [https://www.mailjet.com/docs]  for further details
+   
+   
+ * Read our blog [https://www.mailjet.com/blog]  for the latest... [truncated]</div>
+          </div>
+          
+        </div>
+      </div>
+      
+      <!-- Airdrops -->
+      <div class="card full-width">
+        <div class="card-title">🎯 Airdrop Opportunities</div>
+        <ul class="airdrop-list" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1rem;">
+          
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Berachain</span>
               <span class="airdrop-status">🔥 Testnet Live</span>
             </div>
-            <div class="airdrop-action">Use Bartio testnet • <span class="confidence-high">High Confidence</span></div>
+            <div class="airdrop-action">Use Bartio testnet • <span class="confidence-high">High</span></div>
           </li>
           
-          <li class="airdrop-item">
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Initia</span>
               <span class="airdrop-status">🔥 Testnet Live</span>
             </div>
-            <div class="airdrop-action">Use testnet apps • <span class="confidence-high">High Confidence</span></div>
+            <div class="airdrop-action">Use testnet apps • <span class="confidence-high">High</span></div>
           </li>
           
-          <li class="airdrop-item">
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Movement</span>
               <span class="airdrop-status">🔥 Testnet Live</span>
             </div>
-            <div class="airdrop-action">Bridge + Swap • <span class="confidence-high">High Confidence</span></div>
+            <div class="airdrop-action">Bridge + Swap • <span class="confidence-high">High</span></div>
           </li>
           
-          <li class="airdrop-item">
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Renzo</span>
               <span class="airdrop-status">🔥 Points Live</span>
             </div>
-            <div class="airdrop-action">Restake ETH • <span class="confidence-high">High Confidence</span></div>
+            <div class="airdrop-action">Restake ETH • <span class="confidence-high">High</span></div>
           </li>
           
-          <li class="airdrop-item">
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Monad</span>
               <span class="airdrop-status">⏳ Testnet Soon</span>
             </div>
-            <div class="airdrop-action">Join Discord • <span class="confidence-high">High Confidence</span></div>
+            <div class="airdrop-action">Join Discord • <span class="confidence-high">High</span></div>
           </li>
           
-          <li class="airdrop-item">
+          <li class="airdrop-item" style="border: none; padding: 1rem; background: rgba(255,255,255,0.03); border-radius: 12px;">
             <div class="airdrop-header">
               <span class="airdrop-name">Fuel</span>
               <span class="airdrop-status">⏳ Points</span>
             </div>
-            <div class="airdrop-action">Deposit assets • <span class="confidence-medium">Medium Confidence</span></div>
+            <div class="airdrop-action">Deposit assets • <span class="confidence-medium">Medium</span></div>
           </li>
           
         </ul>
@@ -384,7 +546,7 @@
     </div>
     
     <footer>
-      <p>Automatisch generiert von Henry 🤖 • Letztes Update: 22:20 UTC</p>
+      <p>Automatisch generiert von Henry 🤖 • Letztes Update: 22:25 UTC</p>
     </footer>
   </div>
 </body>
