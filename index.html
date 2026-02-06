@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Morning Dashboard | Sven</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f0f23;
+      --bg-card: #1a1a2e;
+      --bg-card-hover: #252542;
+      --text-primary: #ffffff;
+      --text-secondary: #a0a0b0;
+      --accent-green: #00ff88;
+      --accent-red: #ff4466;
+      --accent-blue: #4488ff;
+      --accent-orange: #ff8844;
+      --accent-purple: #8844ff;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text-primary);
+      min-height: 100vh;
+      padding: 2rem;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    header p {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+    
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .card {
+      background: var(--bg-card);
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: transform 0.2s, background 0.2s;
+    }
+    
+    .card:hover {
+      background: var(--bg-card-hover);
+      transform: translateY(-2px);
+    }
+    
+    .card-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 1rem;
+    }
+    
+    .price-card {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .price-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+    
+    .price-icon.btc { background: linear-gradient(135deg, #f7931a, #ffb347); }
+    .price-icon.eth { background: linear-gradient(135deg, #627eea, #8fa8f0); }
+    .price-icon.sol { background: linear-gradient(135deg, #9945ff, #14f195); }
+    
+    .price-info h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    
+    .price-change {
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    
+    .price-change.positive { color: var(--accent-green); }
+    .price-change.negative { color: var(--accent-red); }
+    
+    .fear-greed {
+      text-align: center;
+    }
+    
+    .fg-value {
+      font-size: 4rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+    
+    .fg-value.fear { color: var(--accent-red); }
+    .fg-value.fear-light { color: var(--accent-orange); }
+    .fg-value.neutral { color: var(--text-secondary); }
+    .fg-value.greed-light { color: #88cc44; }
+    .fg-value.greed { color: var(--accent-green); }
+    
+    .fg-label {
+      font-size: 1.1rem;
+      margin-top: 0.5rem;
+      color: var(--text-secondary);
+    }
+    
+    .trending-list {
+      list-style: none;
+    }
+    
+    .trending-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .trending-item:last-child { border-bottom: none; }
+    
+    .trending-name {
+      font-weight: 500;
+    }
+    
+    .trending-symbol {
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    
+    .airdrop-list {
+      list-style: none;
+    }
+    
+    .airdrop-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    
+    .airdrop-item:last-child { border-bottom: none; }
+    
+    .airdrop-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.25rem;
+    }
+    
+    .airdrop-name {
+      font-weight: 600;
+    }
+    
+    .airdrop-status {
+      font-size: 0.8rem;
+    }
+    
+    .airdrop-action {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+    
+    .confidence-high { color: var(--accent-green); }
+    .confidence-medium { color: var(--accent-orange); }
+    
+    .market-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    
+    .stat-item {
+      text-align: center;
+      padding: 1rem;
+      background: rgba(255,255,255,0.03);
+      border-radius: 12px;
+    }
+    
+    .stat-value {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+    
+    .stat-label {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      margin-top: 0.25rem;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+    }
+    
+    @media (max-width: 768px) {
+      body { padding: 1rem; }
+      header h1 { font-size: 1.75rem; }
+      .fg-value { font-size: 3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>☀️ Guten Morgen, Sven!</h1>
+      <p>Freitag, 6. Februar 2026 • 22:20 UTC</p>
+    </header>
+    
+    <div class="grid">
+      <!-- Prices -->
+      <div class="card">
+        <div class="card-title">💰 Preise</div>
+        <div class="price-card" style="margin-bottom: 1rem;">
+          <div class="price-icon btc">₿</div>
+          <div class="price-info">
+            <h3>$70,485</h3>
+            <span class="price-change positive">↑ 12.3%</span>
+          </div>
+        </div>
+        <div class="price-card" style="margin-bottom: 1rem;">
+          <div class="price-icon eth">Ξ</div>
+          <div class="price-info">
+            <h3>$2,053.38</h3>
+            <span class="price-change positive">↑ 12.3%</span>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-icon sol">◎</div>
+          <div class="price-info">
+            <h3>$88.38</h3>
+            <span class="price-change positive">↑ 12.4%</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Fear & Greed -->
+      <div class="card fear-greed">
+        <div class="card-title">😱 Fear & Greed Index</div>
+        <div class="fg-value fear">9</div>
+        <div class="fg-label">Extreme Fear</div>
+      </div>
+      
+      <!-- Trending -->
+      <div class="card">
+        <div class="card-title">🔥 Trending</div>
+        <ul class="trending-list">
+          
+          <li class="trending-item">
+            <span><span class="trending-name">1. Bitcoin</span></span>
+            <span class="trending-symbol">BTC</span>
+          </li>
+          
+          <li class="trending-item">
+            <span><span class="trending-name">2. Solana</span></span>
+            <span class="trending-symbol">SOL</span>
+          </li>
+          
+          <li class="trending-item">
+            <span><span class="trending-name">3. Pudgy Penguins</span></span>
+            <span class="trending-symbol">PENGU</span>
+          </li>
+          
+          <li class="trending-item">
+            <span><span class="trending-name">4. XRP</span></span>
+            <span class="trending-symbol">XRP</span>
+          </li>
+          
+          <li class="trending-item">
+            <span><span class="trending-name">5. Hyperliquid</span></span>
+            <span class="trending-symbol">HYPE</span>
+          </li>
+          
+        </ul>
+      </div>
+      
+      <!-- Market Stats -->
+      <div class="card">
+        <div class="card-title">🌍 Markt</div>
+        <div class="market-stats">
+          <div class="stat-item">
+            <div class="stat-value">$2.47T</div>
+            <div class="stat-label">Total Market Cap</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">57.0%</div>
+            <div class="stat-label">BTC Dominance</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">10.0%</div>
+            <div class="stat-label">ETH Dominance</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value positive" style="color: var(--accent-green)">8.9%</div>
+            <div class="stat-label">24h Change</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Airdrops -->
+      <div class="card" style="grid-column: span 2;">
+        <div class="card-title">🎯 Airdrop Opportunities</div>
+        <ul class="airdrop-list">
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Berachain</span>
+              <span class="airdrop-status">🔥 Testnet Live</span>
+            </div>
+            <div class="airdrop-action">Use Bartio testnet • <span class="confidence-high">High Confidence</span></div>
+          </li>
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Initia</span>
+              <span class="airdrop-status">🔥 Testnet Live</span>
+            </div>
+            <div class="airdrop-action">Use testnet apps • <span class="confidence-high">High Confidence</span></div>
+          </li>
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Movement</span>
+              <span class="airdrop-status">🔥 Testnet Live</span>
+            </div>
+            <div class="airdrop-action">Bridge + Swap • <span class="confidence-high">High Confidence</span></div>
+          </li>
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Renzo</span>
+              <span class="airdrop-status">🔥 Points Live</span>
+            </div>
+            <div class="airdrop-action">Restake ETH • <span class="confidence-high">High Confidence</span></div>
+          </li>
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Monad</span>
+              <span class="airdrop-status">⏳ Testnet Soon</span>
+            </div>
+            <div class="airdrop-action">Join Discord • <span class="confidence-high">High Confidence</span></div>
+          </li>
+          
+          <li class="airdrop-item">
+            <div class="airdrop-header">
+              <span class="airdrop-name">Fuel</span>
+              <span class="airdrop-status">⏳ Points</span>
+            </div>
+            <div class="airdrop-action">Deposit assets • <span class="confidence-medium">Medium Confidence</span></div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <footer>
+      <p>Automatisch generiert von Henry 🤖 • Letztes Update: 22:20 UTC</p>
+    </footer>
+  </div>
+</body>
+</html>
